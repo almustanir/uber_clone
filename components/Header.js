@@ -1,3 +1,4 @@
+import { UserButton } from '@clerk/nextjs'
 import Image from 'next/image'
 import React from 'react'
 
@@ -15,7 +16,7 @@ function Header() {
         }
     ]
   return (
-    <div className='p-5 pb-3 pl-10 border-b-[4px] border-gray-200'> 
+    <div className='p-5 pb-3 pl-10 border-b-[4px] border-gray-200 flex items-center justify-between'> 
         <div className='flex gap-24 items-center'>
             <Image src="/Uber_logo__.jpeg"
                 width={70}
@@ -34,6 +35,7 @@ function Header() {
                 ))}
             </div>
         </div>
+        <UserButton/>
     </div>
   )
 }
