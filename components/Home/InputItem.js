@@ -14,8 +14,15 @@ function InputItem({ type }) {
       : setPlaceholder("Dropoff location");
   }, []);
 
-  const getLatAndLng = (place, type) => {
-    console.log(place,type)
+  const getLatAndLng = (place, type) =>{
+    const placeId = place.value.place_id;
+    const service=new google.maps.places.PlacesService(document.createElement("div"));
+    service.getDetails({placeId},(place,status) =>{
+        if(status==='OK' && place.geometry && place.geometry.location)
+        {
+            console.log(place.geometry.location.lng())
+        }
+    })
   };
   return (
     <div className="bg-slate-200 p-3 rounded-lg mt-3 flex items-center gap-4">
@@ -24,11 +31,6 @@ function InputItem({ type }) {
         width={15}
         height={15}
       />
-      {/* <input
-        type="text"
-        placeholder={type=='source-removebg'?"Pickup Location": "Dropoff Location"}
-        className="bg-transparent w-full outline-none"
-      /> */}
       <GooglePlacesAutocomplete
         apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY}
         selectProps={{
