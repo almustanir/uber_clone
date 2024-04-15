@@ -6,7 +6,7 @@ export default function Page() {
     <>
       <div className="">
       <Image src="/uberbanner.webp" width={900} height={1000} className="object-contain h-full w-full"/>
-      <div className="absolute top-10 right-0">
+      <div className="absolute top-20 right-0">
       <SignIn />
       </div>
         

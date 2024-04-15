@@ -1,0 +1,41 @@
+import Image from 'next/image'
+import React from 'react'
+
+function Header() {
+    const headerMenu =[
+        {
+            id:1,
+            name:'Ride',
+            icon:'/taxi-removebg.png'
+        },
+        {
+            id:2,
+            name:'Package',
+            icon:'/box-removebg.png'
+        }
+    ]
+  return (
+    <div className='p-5 pb-3 pl-10 border-b-[4px] border-gray-200'> 
+        <div className='flex gap-24 items-center'>
+            <Image src="/Uber_logo__.jpeg"
+                width={70}
+                height={70}
+                alt='Logo'
+            />
+            <div className='flex gap-6 items-center'>
+                {headerMenu.map((item)=> (
+                    <div className='flex gap-2 items-center'>
+                        <Image src={item.icon}
+                            width={17}
+                            height={17}
+                        />
+                        <h2 className='text-[14px] font-medium'>{item.name}</h2>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Header
